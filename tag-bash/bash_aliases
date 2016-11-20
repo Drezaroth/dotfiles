@@ -1,0 +1,16 @@
+# ~/.bash_aliases
+
+alias v='vim'
+alias vrc='v ~/.vimrc'
+
+# sort it, env!
+alias env='env | sort'
+
+# make od output readable
+alias cod='od -A x -t x1 -c'
+alias xod='od -A x -t x1z'
+
+# juju
+alias jus='juju status'
+alias wjus='watch juju status'
+alias judl='juju debug-log'
