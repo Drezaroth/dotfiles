@@ -1,0 +1,32 @@
+# ~/.bashrc:
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Initialize
+for f in $(ls ~/.bashrc.d/01-init/*.sh); do
+  source $f
+done
+
+# Extend
+for f in $(ls ~/.bashrc.d/02-ext/*.sh); do
+  source $f
+done
+
+# Smart Alias-ing
+for f in $(ls ~/.bashrc.d/03-aliases/*.sh); do
+  source $f
+done
+
+# Environmental control
+for f in $(ls ~/.bashrc.d/04-env/*.sh); do
+  source $f
+done
+
+# It's time to complete!
+for f in $(ls ~/.bashrc.d/05-bashcomp/*.sh); do
+  source $f
+done
