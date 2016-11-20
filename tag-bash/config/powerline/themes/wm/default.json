@@ -1,0 +1,36 @@
+{
+  "segments": {
+    "left": [
+      {
+        "function": "powerline.segments.common.net.hostname",
+        "priority": 10
+      },
+      {
+        "function": "powerline.segments.common.net.network_load",
+        "priority": 20
+      },
+      {
+        "function": "powerline.segments.common.bat.battery",
+        "priority": 20
+      }
+
+    ],
+    "right": [
+      {
+        "function": "powerline.segments.common.players.spotify_dbus",
+        "name": "player"
+      },
+      {
+        "function": "powerline.segments.common.time.date"
+      },
+      {
+        "function": "powerline.segments.common.time.date",
+        "name": "time",
+        "args": {
+          "format": "%H:%M",
+          "istime": true
+        }
+      }
+    ]
+  }
+}
