@@ -41,8 +41,11 @@ sudo apt -y install oracle-java8-installer vim-gtk3-py2 \
   python-ceilometerclient python-heatclient python-ironicclient 
 
 # Install rcm manually ;(
-wget https://thoughtbot.github.io/rcm/debs/rcm_1.3.0-1_all.deb
-sudo dpkg -i rcm_1.3.0-1_all.deb
+RCM_DEB=rcm_1.3.0-1_all.deb
+RCM_DEB_PATH=/tmp/${RCM_DEB}
+wget -P /tmp https://thoughtbot.github.io/rcm/debs/${RCM_DEB}
+sudo dpkg -i ${RCM_DEB_PATH}
+rm -f ${RCM_DEB_PATH}
 
 # Create dirs
 mkdir ~/bin
@@ -61,7 +64,14 @@ fc-cache -vf ~/.fonts/
 # Install powerline
 pip install --user powerline-status
 pushd ~/.local/lib/python2.7/site-packages/powerline
-patch -p1 < ~/repos/github.com/lynxnot/powerline-openstack-segment/powerline-openstack-segment.patch
+patch -p2 < ~/repos/github.com/lynxnot/powerline-openstack-segment/powerline-openstack-segment.patch
+popd
+
+# rcup
+# cheat-in .rcrc
+ln -s ~/repos/github.com/lynxnot/dotfiles/rcrc ~/.rcrc
+pushd $HOME
+rcup -t bash
 popd
 
 # sexy-gnome-terminal
