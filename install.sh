@@ -71,7 +71,7 @@ popd
 # cheat-in .rcrc
 ln -s ~/repos/github.com/lynxnot/dotfiles/rcrc ~/.rcrc
 pushd $HOME
-rcup -t bash
+rcup -vf
 popd
 
 # sexy-gnome-terminal

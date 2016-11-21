@@ -1,3 +1,4 @@
 DOTFILES_DIRS="repos/github.com/lynxnot/dotfiles"
 SYMLINK_DIRS="bashrc.d"
 EXCLUDES="README.md install.sh"
+TAGS="base bash vim"
