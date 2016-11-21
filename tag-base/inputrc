@@ -1,0 +1,2 @@
+# Set vi mode in all readline commandlines
+#set editing-mode vi
