@@ -86,4 +86,7 @@ popd
 # sexy-gnome-terminal
 ./sexy-gnome-terminal.sh
 
-echo "\n\nYou should log out to restart X"
+echo 
+echo "** ./install.sh finished!"
+echo
+echo "Log out to restart X and enjoy!"

@@ -65,7 +65,8 @@ if which "$DCONF" > /dev/null 2>&1; then
         dset bold-color-same-as-fg "true"
         dset use-theme-colors "false"
         dset use-theme-background "false"
-        dset font "3270Medium Nerd Font Medium 13"
+        dset use-system-font "false"
+        dset font "'3270Medium Nerd Font Medium 13'"
 
         unset PROFILE_NAME
         unset PROFILE_SLUG
@@ -116,6 +117,7 @@ gset string bold_color "#c5c8c6"
 gset bool   bold_color_same_as_fg "true"
 gset bool   use_theme_colors "false"
 gset bool   use_theme_background "false"
+gset bool   use_system_font "false"
 gset string font "3270Medium Nerd Font Medium 13"
 
 unset PROFILE_NAME
