@@ -1,0 +1,171 @@
+"
+" .vimrc
+"
+"
+" Setup Dein - teh Dark powered Vim/Neovim plugin manager
+" https://github.com/Shougo/dein.vim
+"
+" install it first
+  if (!isdirectory(expand("$HOME/.vim/repos/github.com/Shougo/dein.vim")))
+    call system(expand("mkdir -p $HOME/.vim/repos/github.com"))
+    call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.vim/repos/github.com/Shougo/dein.vim"))
+  endif
+
+" Mammouths are exctint!
+  set nocompatible
+
+" Load Dein
+  set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim/
+
+  call dein#begin(expand('~/.vim'))
+  let pluginsExist = 0
+" Let Dein manage itself
+  call dein#add('Shougo/dein.vim')
+
+" Install Plugins
+  " languages
+  call dein#add('elzr/vim-json', {'on_ft': 'json'})
+  call dein#add('klen/python-mode', {'on_ft': 'python'})
+ 
+  call dein#add('tpope/vim-markdown', {'on_ft': 'markdown'})
+  call dein#add('suan/vim-instant-markdown', {'on_ft': 'markdown'})
+ 
+  " features
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
+  
+  call dein#add('mhinz/vim-sayonara')
+
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+
+  " interface
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('ryanoasis/vim-devicons')
+  call dein#add('mhartington/oceanic-next')
+  call dein#add('uguu-org/vim-matrix-screensaver')
+
+" Test colorschemes for a while
+"call dein#add('flazz/vim-colorschemes')
+  call dein#add('xolox/vim-misc')
+  call dein#add('xolox/vim-colorscheme-switcher')
+
+"
+  if dein#check_install()
+    call dein#install()
+  endif
+  call dein#end()
+ 
+" Required:
+  filetype plugin indent on
+
+" Let airline tell me my status
+  set noshowmode
+  set laststatus=2
+  set noswapfile
+  set showcmd
+  set cmdheight=2
+  set relativenumber number
+  set wildmenu
+  set wildmode=full
+  set ruler
+  set cursorline
+  set display=uhex
+
+  " Fix clipboard
+  set clipboard=unnamedplus
+  let mapleader = ','
+
+  set tabstop=2 shiftwidth=2 expandtab
+  
+  filetype on
+  syntax enable
+  set background=dark
+  colorscheme mytwilight
+
+" Mappings 
+  nmap <leader>- :NextColorScheme<CR>
+  nmap <leader>f :NERDTreeToggle<CR>
+                
+"  nmap <leader>h :call <SID>SynStack()<CR>
+"  function! <SID>SynStack()
+"    if !exists("*synstack")
+"      return
+"    endif
+"    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+"  endfunc
+
+  " Remap macros to Q and disable q
+  nnoremap Q q
+  nnoremap q <Nop>
+
+  " disable the arrows keys :)
+  noremap <left> <Nop>
+  noremap <down> <Nop>
+  noremap <up> <Nop>
+  noremap <right> <Nop>
+  inoremap <left> <Nop>
+  inoremap <down> <Nop>
+  inoremap <up> <Nop>
+  inoremap <right> <Nop>
+
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+
+  " Swiss Keyboard Stuff
+  nmap ç #
+  nmap è [
+  nmap ¨ ]
+  nmap é {zz
+  nmap à }zz
+
+  " center around the cursor 
+  nnoremap èè [[zz
+  nnoremap ¨¨ ]]zz
+  nnoremap [] []zz
+  nnoremap ][ ][zz
+  nnoremap <C-b> <C-b>zz
+  nnoremap <C-f> <C-f>zz
+  nnoremap <C-u> <C-u>zz
+  nnoremap <C-d> <C-d>zz
+
+  let g:gitgutter_sign_column_always = 1
+
+" vim-airline
+" ---------------------------------------------------------------{{{
+  let g:airline#extensions#tabline#enabled = 1
+  set hidden
+  let g:airline#extensions#tabline#fnamemod = ':t'
+  let g:airline#extensions#tabline#show_tab_nr = 1
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline_powerline_fonts = 1
+"  if !exists('g:airline_symbols')
+"      let g:airline_symbols = {}
+"    endif
+"    let g:airline_symbols.space = "\ua0"
+  "let g:airline_theme='ubaryd'
+  let g:airline_theme='hybridline'
+  cnoreabbrev <expr> x getcmdtype() == ":" && getcmdline() == 'x' ? 'Sayonara' : 'x'
+  nmap <leader>t :term<cr>
+  nmap <leader>, :bnext<CR>
+  nmap <leader>. :bprevious<CR>
+  nmap <leader>1 <Plug>AirlineSelectTab1
+  nmap <leader>2 <Plug>AirlineSelectTab2
+  nmap <leader>3 <Plug>AirlineSelectTab3
+  nmap <leader>4 <Plug>AirlineSelectTab4
+  nmap <leader>5 <Plug>AirlineSelectTab5
+  nmap <leader>6 <Plug>AirlineSelectTab6
+  nmap <leader>7 <Plug>AirlineSelectTab7
+  nmap <leader>8 <Plug>AirlineSelectTab8
+  nmap <leader>9 <Plug>AirlineSelectTab9
+  set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h13
+"}}}
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
+endif
