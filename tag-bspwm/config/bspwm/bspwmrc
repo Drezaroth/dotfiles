@@ -1,0 +1,43 @@
+#! /bin/sh
+
+#hsetroot -fill /usr/share/backgrounds/Spring_by_Peter_Apas.jpg
+#hsetroot -fill /usr/share/backgrounds/Black_hole_by_Marek_Koteluk.jpg
+#hsetroot -fill ~/Pictures/wallpapers/linuxwall-1920x1200.jpg
+hsetroot -fill ~/Pictures/wallpapers/conquer-the-world-1920x1200.jpg
+
+# disable touchpad
+xinput disable `xinput list --id-only "ETPS/2 Elantech Touchpad"`
+# remap caps to escape
+setxkbmap -option caps:escape
+# enable numlock
+numlockx on
+
+# Greek monitors
+bspc monitor -d α β γ δ ε ζ η θ κ λ
+
+#bspc monitor -d ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩
+#bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width             8
+bspc config window_gap              32
+bspc config focus_follows_pointer true
+
+bspc config split_ratio           0.50
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+
+bspc config focused_border_color  "#81a2be"
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a google-chrome desktop='^2' follow=on
+bspc rule -a nautilus desktop='^3' follow=on
+bspc rule -a Spotify desktop='^4' follow=on
+bspc rule -a jetbrains-pycharm-ce desktop='^5' follow=on
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+sxhkd &
+panel &
+urxvtd &
+compton &

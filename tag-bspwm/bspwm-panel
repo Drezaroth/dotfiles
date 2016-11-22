@@ -1,0 +1,26 @@
+# vim:ft=sh
+# bspwm-panel config
+#
+
+BP_FIFO=/tmp/bsp-panel-fifo
+BP_WM_NAME="bspwm-panel"
+BP_HEIGHT=18
+# BP_FONT_1="DejaVuSansMonoForPowerline Nerd Font:size=9"
+BP_FONT_1="3270Medium Nerd Font:size=12"
+
+BP_COLOR_FG="#9e9e9e"
+BP_COLOR_BG="#1c1c1c"
+BP_COLOR_SPOTIFY_LOGO_FG="#a2d964"
+BP_COLOR_SPOTIFY_FG="#a0bc80"
+BP_COLOR_SPOTIFY_BG="#303030"
+BP_COLOR_VOLUME_FG="#b8d98f"
+BP_COLOR_VOLUME_BG="#3a3a3a"
+BP_COLOR_NETWORK_ON_FG="#2a6fac"
+#BP_COLOR_NETWORK_ON_FG="#64a2d9"
+BP_COLOR_NETWORK_OFF_FG="#8f99a9"
+BP_COLOR_NETWORK_BG="#444444"
+
+BP_SEP_LEFT_NORM=""
+BP_SEP_LEFT_BOLD=""
+BP_SEP_RIGHT_NORM=""
+BP_SEP_RIGHT_BOLD=""
