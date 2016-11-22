@@ -39,7 +39,11 @@ sudo apt -y install oracle-java8-installer vim-gtk3-py2 \
   python-designateclient python-glanceclient python-cinderclient \
   python-barbicanclient python-cinderclient python-magnumclient \
   python-ceilometerclient python-heatclient python-ironicclient \
-  keepass2 xdotool spotify-client google-chrome-stable atom weechat
+  keepass2 xdotool spotify-client google-chrome-stable atom weechat \
+  nodejs nodejs-legacy npm
+
+# Install instant-markdown-d for vim-instant-markdown
+sudo npm -g install instant-markdown-d
 
 # Install rcm manually ;(
 RCM_DEB=rcm_1.3.0-1_all.deb
@@ -68,6 +72,8 @@ wget -P ~/.config/fontconfig/conf.d https://github.com/powerline/powerline/raw/d
 pushd ~/repos/github.com/ryanoasis/nerd-fonts
 ./install.sh 3270
 ./install.sh UbuntuMono
+./install.sh SourceCodePro
+./install.sh RobotoMono
 popd
 
 # Install powerline
